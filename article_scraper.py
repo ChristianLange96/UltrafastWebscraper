@@ -92,7 +92,7 @@ for link, meta in zip(link_data, meta_data):
 
 
 sender_email = "utrafastarxivscraper@gmail.com"
-sender_password = "ywhf biny immg edso"
+sender_password = "XXX" 	# Contact Christian Lange for actual password
 recipient_email = "christianlange@phys.au.dk"
 
 subject = "Interesting papers from arXiv"
