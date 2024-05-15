@@ -17,17 +17,9 @@ def get_title(meta_element):
 def get_author_list(meta_element):
 	authors = meta_element.select(".list-authors")
 	authors = str(authors)
-
-	print(authors)
 	authors = authors.replace(',+', '')
-	print(authors)
 	authors = authors.split(', ')
-	print(authors)		
-	# authors = authors[0:len(authors)-1]
-	print(authors)
 	authors = [re.sub('<.*?>','', author) for author in authors]
-	print(len(authors))
-	# authors = [author.replace(",", "") for author in authors]
 	authors = [author.rstrip() for author in authors]
 	return authors
 
@@ -69,25 +61,15 @@ for url in urls:
 	link_data = dl_data[0::2]
 	meta_data = dl_data[1::2]
 
-	# print(meta_data)
-	# link_data = link_data[0:1]
-	# meta_data = meta_data[0:1]
 
 
 	for link, meta in zip(link_data, meta_data):
 		is_paper_interesting = False
 		match_conditions = []
-		# print("")
-		# print("Meta")
-		# print(meta)
+
 		authors = get_author_list(meta)
 		title = get_title(meta)
 		abstract = get_abstract(meta) 
-		
-		# print("Tests")
-		# tests = meta.select(".list-authors")
-		# print(tests)
-		# print("Tests end")
 
 		for author in authors:
 			if any(s in author for s in selected_authors):
